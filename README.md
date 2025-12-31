@@ -1,0 +1,157 @@
+# Stock Market Trading & Portfolio Performance Analytics Platform
+
+An end-to-end data engineering and analytics platform designed to process, analyze, and curate stock market and portfolio performance data using scalable, production-grade architectures.
+
+---
+
+## 📖 Project Overview
+
+This project focuses on building a robust stock market analytics pipeline that transforms raw financial time-series data into curated, analytics-ready datasets. The platform is designed following modern data engineering best practices and supports downstream reporting, portfolio evaluation, and market insight generation.
+
+The solution emphasizes scalability, data quality, and modularity, making it suitable for real-world financial analytics use cases.
+
+---
+
+## 🎯 Business Objectives
+
+- Analyze historical stock price movements across multiple companies  
+- Evaluate portfolio performance and investment exposure  
+- Generate return, trend, and risk-related financial metrics  
+- Enable decision-ready datasets for dashboards and analytics  
+
+---
+
+## 🛠️ Technology Stack
+
+- **Python** – Data ingestion and validation  
+- **Pandas** – Time-series feature engineering  
+- **Apache Spark (PySpark)** – Scalable data processing  
+- **Delta Lake** – Reliable storage with ACID compliance  
+- **Azure Databricks** – Distributed analytics platform  
+- **Apache Airflow** – Workflow orchestration  
+- **Docker & Docker Compose** – Containerized Airflow setup  
+- **Power BI** – Data visualization and reporting  
+
+---
+
+## 🏗️ High-Level Architecture
+
+```text
+Raw CSV Data
+     ↓
+Python Ingestion & Validation
+     ↓
+Bronze Layer (Delta Tables)
+     ↓
+Silver Layer (Cleaned & Enriched)
+     ↓
+Gold Layer (Aggregated Business Metrics)
+     ↓
+Power BI Dashboards
+````
+
+---
+
+## ⏱️ Workflow Orchestration (Apache Airflow)
+
+Apache Airflow is used to orchestrate and trigger Databricks Serverless jobs responsible for executing the ETL pipeline.
+
+### Key Highlights:
+
+* Dockerized Airflow setup using `docker-compose`
+* LocalExecutor with Postgres metadata database
+* DAG triggers Databricks Serverless jobs via `DatabricksRunNowOperator`
+* Supports retry logic and failure handling
+* Enables modular and automated pipeline execution
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── airflow/
+│   ├── airflow-dags/
+│   │   └── stocks.py
+│   ├── airflow-logs/
+│   ├── airflow-plugins/
+│   ├── docker-compose.yml
+│   ├── Dockerfile
+│   └── requirements.txt
+│
+├── notebooks/
+│   ├── bronze_layer.ipynb
+│   ├── silver_layer.ipynb
+│   └── gold_layer.ipynb
+│
+├── data/
+│   ├── raw/
+│   │   ├── stocks/
+│   │   │   ├── AAPL.csv
+│   │   │   ├── GOOGL.csv
+│   │   │   ├── JPM.csv
+│   │   │   └── MSFT.csv
+│   │   └── portfolio/
+│   │       └── portfolio_transactions.csv
+│   │
+│   └── processed/
+│       ├── clean_stock_data.csv
+│       └── stock_analytics_pandas.csv
+│
+├── src/
+│   ├── ingestion/
+│   │   └── ingest_stock_data.py
+│   │
+│   ├── transformation/
+│   │   └── pandas_time_series.py
+│   │
+│   └── utils/
+│       └── generate_datasets.py
+│
+├── databricks/               # Databricks notebooks for Bronze–Silver–Gold layers
+├── powerbi/
+│   └── Stock Market Trading & Portfolio Performance.pbix
+├── airflow/                  # Airflow DAGs and Docker setup
+├── README.md
+
+```
+
+---
+
+## 📊 Analytics & Metrics
+
+The platform computes and exposes the following analytics:
+
+* Daily and cumulative returns
+* Short-term and long-term moving averages
+* Volatility and risk indicators
+* Stock-wise performance trends
+* Portfolio-level investment exposure
+
+---
+
+## 📈 Dashboards
+
+The curated Gold-layer datasets are used to build interactive dashboards, including:
+
+* **Executive Market Overview**
+* **Portfolio Performance Dashboard**
+* **Risk & Market Insights Dashboard**
+
+(Screenshots and visuals can be added here.)
+
+---
+
+## 🚀 Future Enhancements
+
+* Real-time stock data ingestion using APIs
+* Advanced risk modeling and factor analysis
+* Machine learning-based price forecasting
+* Automated data quality monitoring
+* CI/CD integration for pipelines
+
+---
+
+## 👤 Author
+
+**Gayathri Pavushetty**
+Stock Market Trading & Portfolio Performance Analytics Platform
