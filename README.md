@@ -114,6 +114,12 @@ Apache Airflow is used to orchestrate and trigger Databricks Serverless jobs res
 ├── README.md
 
 ```
+---
+## 🔹 Logging, Monitoring & Observability
+
+Execution-level logging and monitoring are handled by Apache Airflow and Databricks, which automatically capture task execution details, failures, and retry events, without requiring custom logging logic in the application code.
+
+Airflow provides detailed logs for DAG parsing, task execution, retries, and failures, while Databricks captures job execution logs, Spark driver logs, and executor logs through its managed runtime environment.
 
 ---
 
