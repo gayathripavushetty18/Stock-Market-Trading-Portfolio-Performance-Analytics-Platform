@@ -143,7 +143,6 @@ The curated Gold-layer datasets are used to build interactive dashboards, includ
 * **Portfolio Performance Dashboard**
 * **Risk & Market Insights Dashboard**
 
-(Screenshots and visuals can be added here.)
 
 ---
 
