@@ -241,9 +241,27 @@ Provides a clear snapshot of portfolio composition, diversification, and capital
 
 **Business Value:**
 Enables identification of high-risk stocks, sector concentration, and potential over-exposure.
-
 ---
 
+## ✅ Testing & Validation
+
+To ensure data accuracy and reliability across the analytics pipeline, multiple validation checks were performed at different stages of the ETL process.
+
+* **Data Consistency Checks:**
+  Verified record counts and schema consistency between Bronze, Silver, and Gold layers to ensure no data loss during transformations.
+
+* **Time-Series Validation:**
+  Validated daily return and moving average calculations generated using Python (Pandas) and PySpark by cross-checking sample records manually.
+
+* **Aggregation Accuracy:**
+  Confirmed portfolio-level metrics, sector-wise allocations, and volatility calculations by comparing Gold-layer outputs with intermediate Silver-layer data.
+
+* **Dashboard Verification:**
+  Power BI dashboards were validated against Gold tables to ensure KPI values, trends, and filters accurately reflect the underlying data.
+
+These checks ensure the ETL pipeline produces **trustworthy, analytics-ready data** suitable for financial decision-making.
+
+---
 ## 🚀 Future Enhancements
 
 * Real-time stock data ingestion using APIs
