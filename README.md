@@ -158,13 +158,22 @@ docker compose down
 │   └── utils/
 │       └── generate_datasets.py
 │
-├── databricks/               # Databricks notebooks for Bronze–Silver–Gold layers
+├── databricks/            # Databricks notebooks for Bronze–Silver–Gold layers
 ├── powerbi/
 │   └── Stock Market Trading & Portfolio Performance.pbix
-├── airflow/                  # Airflow DAGs and Docker setup
 ├── README.md
 
 ```
+---
+
+## 🏗️ Data Processing & ETL (30%)
+<img width="723" height="661" alt="ETL pipeline" src="https://github.com/user-attachments/assets/c2143a91-fba4-4935-9c83-7ca78bba985c" />
+
+A structured **Bronze–Silver–Gold ETL pipeline** is implemented using **Azure Databricks and Delta Live Tables**.
+Raw stock prices and portfolio transactions are ingested into Bronze streaming tables, cleansed and standardized in the Silver layer.
+The Gold layer produces aggregated analytical tables such as portfolio metrics, sector allocation, stock volatility, and portfolio summary.
+The Databricks pipeline graph illustrates **data lineage, dependencies, and successful execution** across all ETL stages.
+
 ---
 ## 🔹 Logging, Monitoring & Observability
 
@@ -182,7 +191,8 @@ The project includes **three interactive Power BI dashboards** that provide end-
 
 
 ### 📈 Stock Market Trends Dashboard
-<img width="1269" height="706" alt="image" src="https://github.com/user-attachments/assets/f41c0044-c7cb-47dd-ae31-900ee1904f9f" />
+<img width="1268" height="714" alt="image" src="https://github.com/user-attachments/assets/01778f07-0c86-4d2e-b4ca-15a779d57fe0" />
+
 **Purpose:** Analyze long-term price and volume behavior of selected stocks.
 
 **Key Insights:**
