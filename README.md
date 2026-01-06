@@ -59,17 +59,61 @@ Power BI Dashboards
 
 ---
 
-## ⏱️ Workflow Orchestration (Apache Airflow)
+## 🌀 Apache Airflow Orchestration
 
-Apache Airflow is used to orchestrate and trigger Databricks Serverless jobs responsible for executing the ETL pipeline.
+Apache Airflow is used to **orchestrate the Databricks ETL job**, where triggering the DAG in Airflow automatically runs the **Bronze → Silver → Gold** pipeline in Databricks.
 
-### Key Highlights:
+### 🔄 Workflow Overview
 
-* Dockerized Airflow setup using `docker-compose`
-* LocalExecutor with Postgres metadata database
-* DAG triggers Databricks Serverless jobs via `DatabricksRunNowOperator`
-* Supports retry logic and failure handling
-* Enables modular and automated pipeline execution
+* Airflow DAG triggers a Databricks Job (`ETL_for_stocks`)
+* Databricks executes tasks sequentially:
+<img width="1915" height="995" alt="image" src="https://github.com/user-attachments/assets/6d886237-dd48-4dcf-be92-6279cd736619" />
+
+  * **Bronze** – Raw stock data ingestion
+  * **Silver** – Data cleaning & transformation
+  * **Gold** – Aggregated analytics for reporting
+* Each DAG run results in a successful Databricks job execution, as shown in the monitoring view.
+
+> *This setup ensures reliable scheduling, dependency management, and observability for the ETL pipeline.*
+
+---
+
+### 🛠 Airflow Setup (Docker-based)
+
+The following Docker Compose commands were used to initialize and manage Airflow locally:
+
+```bash
+# Initialize Airflow metadata database
+docker compose run --rm airflow-webserver airflow db init
+
+# Create Airflow admin user
+docker compose run --rm airflow-webserver airflow users create \
+  --username admin \
+  --firstname Gayathri \
+  --lastname Pavushetty \
+  --role Admin \
+  --email gayathri@example.com \
+  --password admin
+
+# Start all Airflow services (webserver, scheduler, etc.)
+docker compose up -d
+
+# Stop and clean up Airflow services
+docker compose down
+```
+
+### 🔐 Airflow Access
+
+* **URL:** `http://localhost:8080`
+* **Username:** `admin`
+* **Password:** `admin`
+
+---
+
+### 📸 Reference
+
+**Airflow-Triggered Databricks ETL Job Execution**
+*(Triggering the DAG in Airflow automatically runs the Databricks job with Bronze, Silver, and Gold tasks.)*
 
 ---
 
@@ -130,26 +174,63 @@ Airflow provides detailed logs for DAG parsing, task execution, retries, and fai
 
 ---
 
-## 📊 Analytics & Metrics
+## 📊 Dashboards & Visual Analytics
 
-The platform computes and exposes the following analytics:
-
-* Daily and cumulative returns
-* Short-term and long-term moving averages
-* Volatility and risk indicators
-* Stock-wise performance trends
-* Portfolio-level investment exposure
+The project includes **three interactive Power BI dashboards** that provide end-to-end insights into stock performance, portfolio allocation, and market risk. These dashboards are built on the **Gold layer** outputs from the Databricks ETL pipeline.
 
 ---
+<img width="1269" height="706" alt="image" src="https://github.com/user-attachments/assets/f41c0044-c7cb-47dd-ae31-900ee1904f9f" />
 
-## 📈 Dashboards
+### 📈 Stock Market Trends Dashboard
 
-The curated Gold-layer datasets are used to build interactive dashboards, including:
+**Purpose:** Analyze long-term price and volume behavior of selected stocks.
 
-* **Executive Market Overview**
-* **Portfolio Performance Dashboard**
-* **Risk & Market Insights Dashboard**
+**Key Insights:**
 
+* Year-wise **stock price trends**
+* **Trading volume trends** over time
+* **Moving averages** to smooth price fluctuations
+* Stock-level slicer for interactive comparison (AAPL, GOOGL, JPM, MSFT)
+
+**Business Value:**
+Helps understand historical performance, momentum, and market activity for informed investment decisions.
+
+---
+<img width="1259" height="713" alt="image" src="https://github.com/user-attachments/assets/cef84a1a-b1c5-4823-af43-3874c9085438" />
+
+### 💼 Portfolio Performance Dashboard
+
+**Purpose:** Evaluate overall portfolio value and stock-wise contribution.
+
+**Key Insights:**
+
+* Total portfolio value
+* Average investment per stock
+* Number of stocks in the portfolio
+* Investment allocation by stock
+* Percentage contribution of each stock
+* Detailed portfolio holdings table
+
+**Business Value:**
+Provides a clear snapshot of portfolio composition, diversification, and capital distribution.
+
+---
+<img width="1258" height="713" alt="image" src="https://github.com/user-attachments/assets/9c5b4b80-2d49-47c7-97e8-9616010698b4" />
+
+### ⚠️ Risk & Market Insights Dashboard
+
+**Purpose:** Assess portfolio exposure and risk across sectors and time.
+
+**Key Insights:**
+
+* Stock risk ranking trends over time
+* Sector-wise market exposure
+* Sector-wise investment allocation
+* Risk intensity heatmap (monthly, per stock)
+* Sector exposure trends (Technology vs Finance)
+
+**Business Value:**
+Enables identification of high-risk stocks, sector concentration, and potential over-exposure.
 
 ---
 
@@ -166,4 +247,5 @@ The curated Gold-layer datasets are used to build interactive dashboards, includ
 ## 👤 Author
 
 **Gayathri Pavushetty**
+
 Stock Market Trading & Portfolio Performance Analytics Platform
