@@ -55,7 +55,15 @@ Silver Layer (Cleaned & Enriched)
 Gold Layer (Aggregated Business Metrics)
      ↓
 Power BI Dashboards
+
 ````
+### 🔄 End-to-End Data Flow
+
+- The platform follows a structured analytics flow starting from **raw CSV stock data** to **business-ready visual insights**.
+- Raw CSV files are first ingested and validated using **Python (Pandas)** to ensure schema consistency and clean time-series data.
+- Validated data is loaded into the **Bronze layer (Delta tables)**, where raw records are stored with minimal transformation.
+- The **Silver layer** applies cleansing, enrichment, and calculation of financial metrics such as daily returns and moving averages.
+Finally, the **Gold layer** produces aggregated business metrics, which are directly consumed by **Power BI dashboards** for interactive analytics and decision-making.
 
 ---
 
@@ -210,6 +218,7 @@ Helps understand historical performance, momentum, and market activity for infor
 
 ### 💼 Portfolio Performance Dashboard
 <img width="1259" height="713" alt="image" src="https://github.com/user-attachments/assets/cef84a1a-b1c5-4823-af43-3874c9085438" />
+
 **Purpose:** Evaluate overall portfolio value and stock-wise contribution.
 
 **Key Insights:**
@@ -229,6 +238,7 @@ Provides a clear snapshot of portfolio composition, diversification, and capital
 
 ### ⚠️ Risk & Market Insights Dashboard
 <img width="1258" height="713" alt="image" src="https://github.com/user-attachments/assets/9c5b4b80-2d49-47c7-97e8-9616010698b4" />
+
 **Purpose:** Assess portfolio exposure and risk across sectors and time.
 
 **Key Insights:**
