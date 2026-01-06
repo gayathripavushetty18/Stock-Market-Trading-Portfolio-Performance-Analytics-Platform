@@ -249,10 +249,10 @@ Provides a clear snapshot of portfolio composition, diversification, and capital
 * Risk intensity heatmap (monthly, per stock)
 * Sector exposure trends (Technology vs Finance)
 
-**Business Value:**
+**Business Value:** 
 Enables identification of high-risk stocks, sector concentration, and potential over-exposure.
----
 
+---
 ## ✅ Testing & Validation
 
 To ensure data accuracy and reliability across the analytics pipeline, multiple validation checks were performed at different stages of the ETL process.
