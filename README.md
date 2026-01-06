@@ -179,10 +179,10 @@ Airflow provides detailed logs for DAG parsing, task execution, retries, and fai
 The project includes **three interactive Power BI dashboards** that provide end-to-end insights into stock performance, portfolio allocation, and market risk. These dashboards are built on the **Gold layer** outputs from the Databricks ETL pipeline.
 
 ---
-<img width="1269" height="706" alt="image" src="https://github.com/user-attachments/assets/f41c0044-c7cb-47dd-ae31-900ee1904f9f" />
+
 
 ### 📈 Stock Market Trends Dashboard
-
+<img width="1269" height="706" alt="image" src="https://github.com/user-attachments/assets/f41c0044-c7cb-47dd-ae31-900ee1904f9f" />
 **Purpose:** Analyze long-term price and volume behavior of selected stocks.
 
 **Key Insights:**
@@ -196,10 +196,10 @@ The project includes **three interactive Power BI dashboards** that provide end-
 Helps understand historical performance, momentum, and market activity for informed investment decisions.
 
 ---
-<img width="1259" height="713" alt="image" src="https://github.com/user-attachments/assets/cef84a1a-b1c5-4823-af43-3874c9085438" />
+
 
 ### 💼 Portfolio Performance Dashboard
-
+<img width="1259" height="713" alt="image" src="https://github.com/user-attachments/assets/cef84a1a-b1c5-4823-af43-3874c9085438" />
 **Purpose:** Evaluate overall portfolio value and stock-wise contribution.
 
 **Key Insights:**
@@ -215,10 +215,10 @@ Helps understand historical performance, momentum, and market activity for infor
 Provides a clear snapshot of portfolio composition, diversification, and capital distribution.
 
 ---
-<img width="1258" height="713" alt="image" src="https://github.com/user-attachments/assets/9c5b4b80-2d49-47c7-97e8-9616010698b4" />
+
 
 ### ⚠️ Risk & Market Insights Dashboard
-
+<img width="1258" height="713" alt="image" src="https://github.com/user-attachments/assets/9c5b4b80-2d49-47c7-97e8-9616010698b4" />
 **Purpose:** Assess portfolio exposure and risk across sectors and time.
 
 **Key Insights:**
